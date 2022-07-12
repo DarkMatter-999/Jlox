@@ -18,3 +18,8 @@ compile:
 run:
 	java -cp $(OUT_DIR) $(MAIN) 1var.lox
 	java -cp $(OUT_DIR) $(MAIN)
+
+makeexp:
+	mkdir -p $(OUT_DIR)
+	javac -d $(OUT_DIR) $$(find dm/lox/tools/ -name *.java)
+	java -cp build/classes/ dm.lox.tools.GenerateAst dm/lox/
