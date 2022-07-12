@@ -1,1 +1,5 @@
-var hello = "Hello lox";
+//var hello = "Hello lox";
+"asdf" == "af";
+1 < 2;
+
+(3.14 * (2*2));
