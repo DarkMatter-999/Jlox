@@ -1,9 +1,11 @@
 package dm.lox;
 
+import dm.lox.Expr.Assign;
 import dm.lox.Expr.Binary;
 import dm.lox.Expr.Grouping;
 import dm.lox.Expr.Literal;
 import dm.lox.Expr.Unary;
+import dm.lox.Expr.Variable;
 
 class AstPrinter implements Expr.Visitor<String>{
     String print(Expr expr) {
@@ -42,5 +44,15 @@ class AstPrinter implements Expr.Visitor<String>{
         
         builder.append(")");
         return builder.toString();
+    }
+
+    @Override
+    public String visitAssignExpr(Assign expr) {
+        return parenthesize(expr.name.lexeme, expr.value);
+    }
+
+    @Override
+    public String visitVariableExpr(Variable expr) {
+        return parenthesize(expr.name.lexeme);
     }
 }
