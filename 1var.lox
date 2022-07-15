@@ -1,5 +1,15 @@
 //var hello = "Hello lox";
-"asdf" == "af";
-1 < 2;
+print "asdf" == "af";
+print 1 < 2;
 
-(3.14 * (2*2));
+print (3.14 * (2*2));
+
+for ( var i=0; i<10; i=i+1) { print i; }
+
+var a = 0;
+var temp;
+for (var b = 1; a < 10000; b = temp + b) {
+ print a;
+ temp = a;
+ a = b;
+}

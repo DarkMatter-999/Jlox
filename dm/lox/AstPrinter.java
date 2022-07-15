@@ -4,6 +4,7 @@ import dm.lox.Expr.Assign;
 import dm.lox.Expr.Binary;
 import dm.lox.Expr.Grouping;
 import dm.lox.Expr.Literal;
+import dm.lox.Expr.Logical;
 import dm.lox.Expr.Unary;
 import dm.lox.Expr.Variable;
 
@@ -54,5 +55,10 @@ class AstPrinter implements Expr.Visitor<String>{
     @Override
     public String visitVariableExpr(Variable expr) {
         return parenthesize(expr.name.lexeme);
+    }
+
+    @Override
+    public String visitLogicalExpr(Logical expr) {
+        return parenthesize(expr.operator.lexeme, expr.left, expr.right);
     }
 }
