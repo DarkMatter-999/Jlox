@@ -2,6 +2,7 @@ package dm.lox;
 
 import dm.lox.Expr.Assign;
 import dm.lox.Expr.Binary;
+import dm.lox.Expr.Call;
 import dm.lox.Expr.Grouping;
 import dm.lox.Expr.Literal;
 import dm.lox.Expr.Logical;
@@ -60,5 +61,10 @@ class AstPrinter implements Expr.Visitor<String>{
     @Override
     public String visitLogicalExpr(Logical expr) {
         return parenthesize(expr.operator.lexeme, expr.left, expr.right);
+    }
+
+    @Override
+    public String visitCallExpr(Call expr) {
+        return parenthesize(expr.callee.toString());
     }
 }
