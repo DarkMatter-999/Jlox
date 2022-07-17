@@ -21,3 +21,12 @@ fun fib(n) {
 for (var i = 0; i < 20; i = i + 1) {
  print fib(i);
 }
+
+class Math {
+    square(n) {
+        return n * n;
+    }
+}
+var m = Math();
+print m.square(3);
+print m.one = 10;

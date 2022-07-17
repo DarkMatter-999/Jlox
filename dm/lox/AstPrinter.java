@@ -3,9 +3,12 @@ package dm.lox;
 import dm.lox.Expr.Assign;
 import dm.lox.Expr.Binary;
 import dm.lox.Expr.Call;
+import dm.lox.Expr.Get;
 import dm.lox.Expr.Grouping;
 import dm.lox.Expr.Literal;
 import dm.lox.Expr.Logical;
+import dm.lox.Expr.Set;
+import dm.lox.Expr.This;
 import dm.lox.Expr.Unary;
 import dm.lox.Expr.Variable;
 
@@ -66,5 +69,20 @@ class AstPrinter implements Expr.Visitor<String>{
     @Override
     public String visitCallExpr(Call expr) {
         return parenthesize("function", expr.callee);
+    }
+
+    @Override
+    public String visitGetExpr(Get expr) {
+        return parenthesize(expr.name.lexeme, expr.object);
+    }
+
+    @Override
+    public String visitSetExpr(Set expr) {
+        return parenthesize(expr.name.lexeme, expr.object);
+    }
+
+    @Override
+    public String visitThisExpr(This expr) {
+        return parenthesize(expr.keyword.lexeme);
     }
 }
