@@ -26,7 +26,26 @@ class Math {
     square(n) {
         return n * n;
     }
+    dosqr(n) {
+        return this.square(n);
+    }
 }
 var m = Math();
 print m.square(3);
 print m.one = 10;
+print m.dosqr(9);
+
+class Base {
+    init(n) {
+        this.n = n;
+    }
+}
+
+class Der < Base {
+    getn() {
+        return this.n;
+    }
+}
+
+var d = Der(10);
+print d.getn();

@@ -8,6 +8,7 @@ import dm.lox.Expr.Grouping;
 import dm.lox.Expr.Literal;
 import dm.lox.Expr.Logical;
 import dm.lox.Expr.Set;
+import dm.lox.Expr.Super;
 import dm.lox.Expr.This;
 import dm.lox.Expr.Unary;
 import dm.lox.Expr.Variable;
@@ -83,6 +84,11 @@ class AstPrinter implements Expr.Visitor<String>{
 
     @Override
     public String visitThisExpr(This expr) {
+        return parenthesize(expr.keyword.lexeme);
+    }
+
+    @Override
+    public String visitSuperExpr(Super expr) {
         return parenthesize(expr.keyword.lexeme);
     }
 }

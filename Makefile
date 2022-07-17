@@ -17,7 +17,7 @@ compile:
 
 run:
 	java -cp $(OUT_DIR) $(MAIN) 1var.lox
-	java -cp $(OUT_DIR) $(MAIN)
+	# java -cp $(OUT_DIR) $(MAIN)
 
 makeexp:
 	mkdir -p $(OUT_DIR)
